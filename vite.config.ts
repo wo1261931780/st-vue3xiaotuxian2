@@ -35,6 +35,7 @@ export default defineConfig({
 				// 导入自定义样式表进行覆盖
 				additionalData: `
 @use "@/styles/element/index.scss" as *;
+@use "@/styles/var.scss" as *;
         `
 			}
 		}
