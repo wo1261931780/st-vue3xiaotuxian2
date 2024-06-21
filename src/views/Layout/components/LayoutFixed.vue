@@ -1,8 +1,10 @@
 <script setup>
-import LayoutHeaderUl from './LayoutHeaderUl.vue'
 // vueUse
 import {useScroll} from '@vueuse/core'
+import {useCategory} from '@/stores/Category.js'
 
+const category = useCategory()
+// 相当于，把请求统一放到上面管理
 const {y} = useScroll(window) //基于 Windows 系统的滚动条
 // vueuse就是基于组合式 api，官方帮助我们封装好了很多函数
 
@@ -14,7 +16,15 @@ const {y} = useScroll(window) //基于 Windows 系统的滚动条
 			<RouterLink class = "logo" to = "/"/>
 			<!-- 导航区域 -->
 			
-			<LayoutHeaderUl/>
+			<!--			<LayoutHeaderUl/>-->
+			<ul class = "app-header-nav">
+				<li class = "home">
+					<RouterLink to = "/">首页</RouterLink>
+				</li>
+				<li v-for = "(item) in category.categoryList" :key = "item.id" class = "home">
+					<RouterView to = "/">{{ item.name }}</RouterView>
+				</li>
+			</ul>
 			<div class = "right">
 				<RouterLink to = "/">品牌</RouterLink>
 				<RouterLink to = "/">专题</RouterLink>

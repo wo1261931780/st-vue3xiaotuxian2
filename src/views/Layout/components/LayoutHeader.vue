@@ -2,18 +2,19 @@
 // import LayoutHeaderUl from './LayoutHeaderUl.vue'
 // import HeaderCart from './HeaderCart.vue'
 
-import {getCategoryApi} from '@/apis/layout.js'
+// const categoryList = ref([])
+// // 新建一个 list 用来存放我们请求的数据
+// const getCategory = async () => {
+// 	const res = await getCategoryApi()
+// 	console.log(res)
+// 	categoryList.value = res.result.data
+// }
+import {useCategory} from '@/stores/Category.js'
 
-const categoryList = ref([])
-// 新建一个 list 用来存放我们请求的数据
-const getCategory = async () => {
-	const res = await getCategoryApi()
-	console.log(res)
-	categoryList.value = res.result.data
-}
-onMounted(() => {
-	getCategory()
-})
+const category = useCategory()
+// onMounted(() => {
+// 	getCategory()
+// })
 </script>
 
 <template>
@@ -24,7 +25,7 @@ onMounted(() => {
 			</h1>
 			<!--<LayoutHeaderUl/>-->
 			<ul class = "app-header-nav">
-				<li v-for = "item in categoryList" :key = "item.id" class = "home">
+				<li v-for = "item in category.categoryList" :key = "item.id" class = "home">
 					<RouterView to = "/">{{ item.name }}</RouterView>
 				</li>
 			</ul>
