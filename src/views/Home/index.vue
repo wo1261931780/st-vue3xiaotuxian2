@@ -3,7 +3,7 @@
 </script>
 
 <template>
-	<div>我是 home</div>
+	<div style = "height: 1200px;">我是 home</div>
 </template>
 
 <style scoped>

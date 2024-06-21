@@ -4,9 +4,12 @@
 
 import {getCategoryApi} from '@/apis/layout.js'
 
+const categoryList = ref([])
+// 新建一个 list 用来存放我们请求的数据
 const getCategory = async () => {
 	const res = await getCategoryApi()
 	console.log(res)
+	categoryList.value = res.result.data
 }
 onMounted(() => {
 	getCategory()
@@ -19,7 +22,12 @@ onMounted(() => {
 			<h1 class = "logo">
 				<RouterLink to = "/">小兔鲜</RouterLink>
 			</h1>
-			<!--			<LayoutHeaderUl/>-->
+			<!--<LayoutHeaderUl/>-->
+			<ul class = "app-header-nav">
+				<li v-for = "item in categoryList" :key = "item.id" class = "home">
+					<RouterView to = "/">{{ item.name }}</RouterView>
+				</li>
+			</ul>
 			<div class = "search">
 				<i class = "iconfont icon-search"></i>
 				<input placeholder = "搜一搜" type = "text">
