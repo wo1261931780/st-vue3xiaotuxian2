@@ -9,7 +9,7 @@
 // 	console.log(res)
 // 	categoryList.value = res.result.data
 // }
-import {useCategory} from '@/stores/Category.js'
+import {useCategory} from '@/stores/Category.ts'
 
 const category = useCategory()
 // onMounted(() => {

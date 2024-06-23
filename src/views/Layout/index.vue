@@ -5,6 +5,7 @@ import LayoutHeader from "@/views/Layout/components/LayoutHeader.vue";
 import LayoutFooter from "@/views/Layout/components/LayoutFooter.vue";
 import LayoutFixed from "@/views/Layout/components/LayoutFixed.vue";
 import {useCategory} from '@/stores/Category';
+import {onMounted} from "vue";
 
 const category = useCategory();
 

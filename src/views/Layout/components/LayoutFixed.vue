@@ -1,7 +1,7 @@
 <script setup>
 // vueUse
 import {useScroll} from '@vueuse/core'
-import {useCategory} from '@/stores/Category.js'
+import {useCategory} from '@/stores/Category.ts'
 
 const category = useCategory()
 // 相当于，把请求统一放到上面管理
